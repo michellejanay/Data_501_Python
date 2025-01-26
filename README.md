@@ -190,7 +190,7 @@ print(greeting)
 # returns hello world!
 ```
 
-Variables with multiple words use the snake case typing. This is a convention and can use other typing such as CamelCase. I would recommend following the Python style guide (here)[https://peps.python.org/pep-0008/] for more details<br><br>
+Variables with multiple words use the snake case typing. This is a convention and can use other typing such as CamelCase. I would recommend following the Python style guide [here](https://peps.python.org/pep-0008/) for more details<br><br>
 
 **Example**
 ```
@@ -382,21 +382,148 @@ else:
 
 
 ## Collections <a name="collections"></a>
-
+Collections are built-in types that allow us to store larger amounts of data in a particular format. The two formats we are focusing on here are lists and dictionaries.
 
 ### Lists <a name="lists"></a>
+Also know as Arrays in other coding languages do exactly what their name suggests. You can store any data type in a list. A list is wrapped in square brackets, seperated by commas and uses the same indexing as strings, starting at 0. <br><br>
+
+**Example**
+```
+my_list = ['String', 1, 2.3, True, ['Another list']]
+print(my_list[3])
+# returns True
+```
 
 
 ### Dictionaries <a name="dictionaries"></a>
+Dictionaries, also know as HashMap or Maps, are based on **key** **value** pairs. In lists we use indexes, but in dictionaries we can give a key that will store our information. We seperate keys from values using a colon. Keys will often be string values of any name, and the values can be any data type. We use bracket notation to access the values stored in the keys of the dictionary <br><br>
 
+**Example**
+```
+my_dict = {
+    'an_integer': 1, 
+    'a_float': 2.3, 
+    'a_boolean': True, 
+    'a_list': ['Another list']
+}
+
+print(my_dict[a_boolean])
+# returns True
+```
 
 ## Loops <a name="loops"></a>
-
+Loops are an incredibly important in programming and allow you to apply actions to each object within a collection of objects. There are two loops we will be looking at; For and While loops
 
 ### While Loops <a name="while-loops"></a>
+A While loop is reliant on Boolean conditions.. It will run while our condition is true and once it is false the while loop will stop. <br>
+Be careful when using while loops that you don't get stuck in a never ending loop. Always make sure to change the condition within the loop, to make sure it stops running.  
+<br><br>
 
+**Example**
+```
+loop_control = 1
+while loop_control <= 3:
+    print('I am a while loop')
+    loop_control += 1
+
+#returns 
+I am a while loop
+I am a while loop
+I am a while loop
+```
+
+Notice that we are adding 1 to the `loop_control` everytime the loop runs, so after the third time the loop runs, loop_control is less than or equal to 3, and the loop stops running. 
 
 ### For Loops <a name="for-loops"></a>
+A For Loop needs to be given an iterable object and will cycle through each object within the iterable and return it for action. Strings, lists and dictionaries are all iterables in Python.<br><br>
 
+**Example***
+```
+my_string = 'hello world!'
+
+for letter in my_string:
+    print(letter)
+
+#returns 
+h
+e
+l
+l
+o
+
+w
+o
+r
+l
+d
+!
+```
+
+Notice the word letter in the loop. This is a temporary name that I have give to describe what I am looping over in this string. This could be called anything, but I have used a meaningful name. Here is another example
+
+**Example***
+```
+my_list_of_strings = ['hello', 'world', '!']
+
+for word in my_list_of_strings:
+    print(word)
+
+#returns 
+hello
+world
+!
+```
+
+We also don't have to give the iterable a name. we can do this as well
+
+```
+my_list_of_strings = ['hello', 'world', '!']
+
+for word in my_list_of_strings:
+    print(word)
+
+#returns 
+hello
+world
+!
+```
+
+These are just some basic loops, have a play around in Pycharm! How can we loop through dictionaries key, value pairs?
 
 ## Functions <a name="functions"></a>
+All of the code so far has been written to be in a linear or line-by-line fashion. Functions allow us to write blocks of code that break our code down into smaller, modular chunks. They help us keep our code more organized and reusable. There is principle called DRY used in programming, standing for Don't Repeat Yourself! Writing functions helps us do that. To create a function, we use the `def` keyword, followed by our function name, and curly brackets. The curly brackets are used to store arguments or parameters we can pass through the function. Functions usually have a return value, which gets places in the return statement at the end of a function. Here are some examples <br><br>
+
+**Example - function with no arguments**
+```
+def greeting():
+    my_string = 'hello world!'
+    return my_string
+print(greeting())
+
+#returns hello world!
+```
+Notice how in the print statement, I have the name of the function followed by curly brackets. This is how we invoke a function, also known as calling a function. If we do not call the function anywhere, nothing happens in the program. We must call the function to see the result. 
+
+**Example - with arguments**
+```
+def greeting(first_name):
+    my_string = f'hello {first_name}!'
+    return my_string
+print(greeting('jane'))
+
+#returns hello jane!
+```
+
+Above I have given the name first_name to the argument/parameter we are passing into the function. You can name the argument anything, but again, be sure to use meaningful names so others can have a better understanding of what gets passed into the function. We pass the string we want into the function call, and that's how we get 'hello jane!' printed to the console. <br><br>
+
+Another cool thing about functions, is that you can have as many arguments as you want! Read more about it [here](https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions)<br><br>
+
+**Example - with multiple arguments**
+```
+def greeting(first_name, last_name,):
+    my_string = f'hello {first_name} {last_name}!'
+    return my_string
+print(greeting('jane', 'doe'))
+
+#returns hello jane doe!
+```
