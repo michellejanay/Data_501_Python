@@ -212,7 +212,7 @@ print(greeting)
 ## More on Strings <a name="more-on-strings"></a>
 
 
-### Concatenation <a name="#concatenation-and-escape-characters"></a>
+### Concatenation and Escape Characters <a name="#concatenation-and-escape-characters"></a>
 
 Concatenation is the process of joining strings together<br><br>
 **Example**<br>
