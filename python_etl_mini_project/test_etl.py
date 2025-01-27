@@ -1,8 +1,12 @@
 from etl import extract, transform_remove, transform_add_average, load_to_csv
+import pytest
+
 
 def test_extract():
-    # check for exception
-    pass
+    test_file = 'student_test_scores_extended.xlsx'
+    with pytest.raises(Exception):
+        extract(test_file)
+    
 
 def test_transform_remove():
     test_list = [
@@ -54,6 +58,6 @@ def test_transform_add_average():
     assert result_list == transform_add_average(test_list)
 
 def test_load_to_csv():
-    # check for exception
-    pass
-
+    test_list = []
+    with pytest.raises(Exception):
+        load_to_csv(test_list)

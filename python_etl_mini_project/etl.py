@@ -4,6 +4,9 @@ students_excel = 'student_test_scores_extended.xlsx'
 
 
 def extract(csv_file):
+    # checking file type ends with csv
+    if not csv_file.lower().endswith('.csv'):
+        raise Exception('please use a csv file')
     # an empty list to store extracted data
     extracted_students = []
     try:
@@ -14,8 +17,8 @@ def extract(csv_file):
             # saving data from file to new list
             for student in students_test_scores:
                 extracted_students.append(student)
-    except: 
-        print('please use a csv file')
+    except Exception as e: 
+        raise Exception(f'an error occured while processing your file: {e}')
     # returning the new list of dictionaries
     return extracted_students
 
@@ -53,6 +56,8 @@ def transform_add_average(student_list):
     return transformed_students
 
 def load_to_csv(student_list):
+    if len(student_list) == 0:
+        raise Exception('your data is empty, please use a csv file')
     try:
         # finding the column names from the dictionary keys
         column_names = list(student_list[0].keys())
@@ -68,8 +73,8 @@ def load_to_csv(student_list):
             writer.writerows(student_list)
             # result message
             print('successfully written files')
-    except:
-        print('your data is empty, please use a csv file')
+    except Exception as e:
+        raise Exception(f'an error occured while processing your data: {e}')
 
 # one function to rule them all
 def etl(orginal_file):
@@ -80,4 +85,4 @@ def etl(orginal_file):
     print('new csv successfully created')
     return loaded
 
-etl(students_csv_file)
+# etl(students_csv_file)
